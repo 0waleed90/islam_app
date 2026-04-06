@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islam/core/util/app_router.dart';
 
 void main() {
   runApp(const Islam());
@@ -8,6 +9,6 @@ class Islam extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp.router(routerConfig: AppRouter.router ,);
   }
 }
