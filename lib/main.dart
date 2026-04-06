@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Islam());
 }
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Islam extends StatelessWidget {
+  const Islam({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
-
+    return MaterialApp(home: Scaffold(),);
   }
 }
