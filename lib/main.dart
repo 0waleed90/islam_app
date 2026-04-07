@@ -9,6 +9,9 @@ class Islam extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(routerConfig: AppRouter.router ,);
+    return MaterialApp.router(routerConfig: AppRouter.router ,
+    theme: .dark(),
+debugShowCheckedModeBanner: false,
+    );
   }
 }

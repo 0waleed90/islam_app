@@ -4,6 +4,11 @@ class SplashViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(body: Stack(children: [
+      Image.asset('assets/photos/splash_background.png',fit: BoxFit.fill,)
+      
+      
+      
+    ],),);
   }
 }
