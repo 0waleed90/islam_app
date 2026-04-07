@@ -1,15 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:islam/core/util/app_router.dart';
 
-class SplashViewBody extends StatelessWidget {
+class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 
   @override
+  State<SplashViewBody> createState() => _SplashViewBodyState();
+}
+
+class _SplashViewBodyState extends State<SplashViewBody> {
+ @override
+  void initState() {
+   navigationToIntroView();
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Stack(
         children: [
           Image.asset('assets/photos/splash_background.png', fit: BoxFit.fill),
-          Expanded(
+          Positioned.fill(
             child: Column(
               children: [
                 Row(
@@ -44,28 +57,23 @@ class SplashViewBody extends StatelessWidget {
                   ],
                 ),
                 Image.asset('assets/photos/OBJECTS.png'),
-                Image.asset('assets/photos/Islami.png'),
+                Image.asset('assets/photos/islam.png'),
                 Align(
                   alignment: .centerRight,
                   child: Image.asset('assets/photos/Shape-04 1.png'),
                 ),
-
-                Text(
-                  "Programming py waleed Al-Maksour",
-                  style: TextStyle(
-                    fontWeight: .w900,
-                    fontSize: 20,
-                    color: Colors.white10,
-                  ),
-                ),
               ],
             ),
           ),
+
         ],
       ),
+
     );
   }
-}
 
-//Image.asset('assets/photos/Glow.png', width: 80),
-// Image.asset('assets/photos/Shape-07 1.png'),
+  void navigationToIntroView(){
+    Future.delayed(Duration(seconds: 3),(){GoRouter.of(context).push(AppRouter.kIntroView);});
+
+  }
+}
