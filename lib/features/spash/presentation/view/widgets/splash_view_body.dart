@@ -45,13 +45,19 @@ class SplashViewBody extends StatelessWidget {
                 ),
                 Image.asset('assets/photos/OBJECTS.png'),
                 Image.asset('assets/photos/Islami.png'),
-                // SizedBox(height: 50,),
-                // Text("Programming py waleed Maksour",style: TextStyle(fontWeight: .w900,fontSize: 20,color: Colors.white10),),
                 Align(
-                    alignment: .centerRight,
-                    child: Image.asset('assets/photos/Shape-04 1.png')),
+                  alignment: .centerRight,
+                  child: Image.asset('assets/photos/Shape-04 1.png'),
+                ),
 
-                 Text("Programming py waleed Al-Maksour",style: TextStyle(fontWeight: .w900,fontSize: 20,color: Colors.white10),),
+                Text(
+                  "Programming py waleed Al-Maksour",
+                  style: TextStyle(
+                    fontWeight: .w900,
+                    fontSize: 20,
+                    color: Colors.white10,
+                  ),
+                ),
               ],
             ),
           ),
