@@ -11,5 +11,10 @@ class Styles {
     fontSize: 20,
     fontWeight: .bold,
     color: kPrimaryColor,
+  ); static const textStyle16 = TextStyle(
+    fontSize: 16,
+    fontWeight: .bold,
+    color: kPrimaryColor,
   );
+
 }
