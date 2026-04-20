@@ -22,4 +22,9 @@ class Styles {
     fontWeight: .bold,
     color: Color(0xff202020),
   );
+  static const textStyle36 = TextStyle(
+    fontSize: 36,
+    fontWeight: .bold,
+    color: Colors.white,
+  );
 }

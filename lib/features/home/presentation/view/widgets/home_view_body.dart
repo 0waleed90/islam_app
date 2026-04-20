@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_openmoji/flutter_openmoji.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:islam/core/constants.dart';
-import 'package:islam/features/home/presentation/view/widgets/athkar_page.dart';
+import 'package:islam/features/home/presentation/view/athkar_view/athkar_page.dart';
 import 'package:islam/features/home/presentation/view/widgets/hadith_view/hadith_page.dart';
 import 'package:islam/features/home/presentation/view/widgets/quran_view/quran_page.dart';
 import 'package:islam/features/home/presentation/view/widgets/radio_page.dart';
