@@ -37,6 +37,9 @@ dependencies:
   go_router: ^17.2.0
   dots_indicator: ^4.0.1
   get_it: ^9.2.1
+  font_awesome_flutter: ^11.0.0
+  flutter_openmoji: ^0.0.8
+  carousel_slider: ^5.1.2
 
 dev_dependencies:
   flutter_test:

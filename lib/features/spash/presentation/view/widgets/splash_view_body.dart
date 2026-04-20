@@ -10,15 +10,15 @@ class SplashViewBody extends StatefulWidget {
 }
 
 class _SplashViewBodyState extends State<SplashViewBody> {
- @override
+  @override
   void initState() {
-   navigationToIntroView();
+    navigationToIntroView();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Stack(
         children: [
           Image.asset('assets/photos/splash_background.png', fit: BoxFit.fill),
@@ -65,15 +65,14 @@ class _SplashViewBodyState extends State<SplashViewBody> {
               ],
             ),
           ),
-
         ],
       ),
-
     );
   }
 
-  void navigationToIntroView(){
-    Future.delayed(Duration(seconds: 3),(){GoRouter.of(context).push(AppRouter.kIntroView);});
-
+  void navigationToIntroView() {
+    Future.delayed(Duration(seconds: 3), () {
+      GoRouter.of(context).push(AppRouter.kIntroView);
+    });
   }
 }

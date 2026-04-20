@@ -11,10 +11,15 @@ class Styles {
     fontSize: 20,
     fontWeight: .bold,
     color: kPrimaryColor,
-  ); static const textStyle16 = TextStyle(
+  );
+  static const textStyle16 = TextStyle(
     fontSize: 16,
     fontWeight: .bold,
     color: kPrimaryColor,
   );
-
+  static const textStyle14 = TextStyle(
+    fontSize: 14,
+    fontWeight: .bold,
+    color: Color(0xff202020),
+  );
 }

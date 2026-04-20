@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islam/features/intro/presentation/view/widgets/custom_page_view.dart';
+import 'package:islam/features/intro/presentation/view/widgets/page_view_item.dart';
 
 class IntroViewBody extends StatefulWidget {
   const IntroViewBody({super.key});
@@ -9,11 +10,11 @@ class IntroViewBody extends StatefulWidget {
 }
 
 class _IntroViewBodyState extends State<IntroViewBody> {
-  PageController? pageController;
-   final int dotsIndex =0;
+ late PageController pageController;
+   final int currentPage =0;
   @override
   void initState() {
-    pageController = PageController(initialPage: dotsIndex)
+    pageController = PageController(initialPage: currentPage)
       ..addListener(() {
         setState(() {});
       });
@@ -23,7 +24,8 @@ class _IntroViewBodyState extends State<IntroViewBody> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [CustomPageView(pageController: pageController!)]),
+      body: CustomPageView(pageController: pageController!)
+
     );
   }
 }
