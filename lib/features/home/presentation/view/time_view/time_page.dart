@@ -4,6 +4,6 @@ class TimePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Stack(children: [Image.asset('')],);
   }
 }

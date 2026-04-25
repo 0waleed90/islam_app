@@ -14,32 +14,32 @@ class AthkarPage extends StatelessWidget {
             'assets/photos/athkar_Background (1).png',
             fit: BoxFit.fill,
           ),
-          Align(alignment: .center,
+          Align(
+            alignment: .center,
             child: Column(
               children: [
-                const SizedBox(height: 20,),
+                const SizedBox(height: 20),
                 LogoImage(),
-                Text(
-                  'سبح اسم ربك الأعلى',
-                  style:Styles.textStyle36
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height*.26,),
-                Text(
-                  'سبحان الله',
-                  style:Styles.textStyle36
-                ),
-                const SizedBox(height: 15,),
-                Text('30', style:Styles.textStyle36)
+                Row(
+                  children: [
+                    TextButton(onPressed: (){}, child: Text('<',style: Styles.textStyle36,)),
+                    Text('سبح اسم ربك الأعلى', style: Styles.textStyle36),
+                    TextButton(onPressed: (){}, child: Text('>',style: Styles.textStyle36,)),
 
-
+                  ],
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height * .26),
+                Text('سبحان الله', style: Styles.textStyle36),
+                const SizedBox(height: 15),
+                Text('30', style: Styles.textStyle36),
               ],
             ),
           ),
 
           Align(
-              alignment: .xy(0.01, 0.68),
-              child: Image.asset('assets/photos/Sebha (1).png')),
-
+            alignment: .xy(0.01, 0.68),
+            child: Image.asset('assets/photos/Sebha (1).png'),
+          ),
         ],
       ),
     );
