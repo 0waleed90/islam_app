@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islam/core/util/app_router.dart';
 
-void main() {
+void main()async {
+
   runApp(const Islam());
 }
 
