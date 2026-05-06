@@ -10,8 +10,8 @@ class IntroViewBody extends StatefulWidget {
 }
 
 class _IntroViewBodyState extends State<IntroViewBody> {
- late PageController pageController;
-   final int currentPage =0;
+  PageController pageController = PageController();
+  int currentPage = 0;
   @override
   void initState() {
     pageController = PageController(initialPage: currentPage)
@@ -23,9 +23,6 @@ class _IntroViewBodyState extends State<IntroViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomPageView(pageController: pageController!)
-
-    );
+    return Scaffold(body: CustomPageView(pageController: pageController));
   }
 }

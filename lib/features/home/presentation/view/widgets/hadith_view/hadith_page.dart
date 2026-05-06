@@ -69,8 +69,3 @@ class _HadithPageState extends State<HadithPage> {
 
   }
 }
-
-// Padding(
-// padding: const EdgeInsets.symmetric(horizontal: 10),
-// child: HadithListViewItem(),
-// );

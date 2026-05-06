@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islam/core/util/widgets/logo_image.dart';
-import 'package:islam/features/home/presentation/view/radio_view/change_radio_buttons.dart';
-import 'package:islam/features/home/presentation/view/radio_view/radio_list_view.dart';
-import 'package:islam/features/home/presentation/view/radio_view/radio_list_view_item.dart';
+import 'package:islam/features/home/presentation/view/widgets/radio_view/change_radio_buttons.dart';
+import 'package:islam/features/home/presentation/view/widgets/radio_view/radio_list_view.dart';
 
 class RadioPage extends StatefulWidget {
   const RadioPage({super.key});

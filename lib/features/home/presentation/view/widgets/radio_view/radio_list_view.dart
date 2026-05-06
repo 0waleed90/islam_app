@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islam/features/home/presentation/view/radio_view/radio_list_view_item.dart';
+import 'package:islam/features/home/presentation/view/widgets/radio_view/radio_list_view_item.dart';
 
 class RadioListView extends StatelessWidget {
   const RadioListView({super.key});
