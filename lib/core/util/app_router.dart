@@ -9,16 +9,22 @@ abstract class AppRouter {
   static final String kIntroView = '/IntroView';
   static final String kHomeView = '/HomeView';
   static final String kSearchView = '/SearchView';
-  static final String kSuraContentView ='/SuraContentView';
-  static final String kHadithContentView ='/HadithContentView';
+  static final String kSuraContentView = '/SuraContentView';
+  static final String kHadithContentView = '/HadithContentView';
   static final GoRouter router = GoRouter(
     routes: [
-      GoRoute(path: kHadithContentView,builder: (context,state)=>HadithContentView()),
+      GoRoute(
+        path: kHadithContentView,
+        builder: (context, state) => HadithContentView(),
+      ),
 
-GoRoute(path: kSuraContentView,builder: (context,state)=>SuraContentView()),
+      GoRoute(
+        path: kSuraContentView,
+        builder: (context, state) => SuraContentView(),
+      ),
       GoRoute(path: '/', builder: (context, state) => SplashView()),
       GoRoute(path: kIntroView, builder: (context, state) => IntroView()),
-      GoRoute(path: kHomeView,builder: (context,state)=>HomeView()),
+      GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
     ],
   );
 }
