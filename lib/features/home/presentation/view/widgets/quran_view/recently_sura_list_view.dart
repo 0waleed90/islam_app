@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:islam/features/home/presentation/view/widgets/quran_view/recently_sura_list_view_item.dart';
 
 class RecentlySuraListview extends StatelessWidget {
-  const RecentlySuraListview({super.key});
-
+  const RecentlySuraListview({super.key, required this.suraName});
+final String suraName;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -13,7 +13,7 @@ class RecentlySuraListview extends StatelessWidget {
         itemBuilder: (context, index) {
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: RecentlySuraListviewItem(),
+            child: RecentlySuraListviewItem(suraName: suraName,),
           );
         },
         itemCount: 10,

@@ -6,8 +6,8 @@ import 'package:islam/core/util/styles.dart';
 import 'package:islam/features/home/presentation/view/sura_content_view.dart';
 
 class RecentlySuraListviewItem extends StatelessWidget {
-  const RecentlySuraListviewItem({super.key});
-
+  const RecentlySuraListviewItem({super.key, required this.suraName});
+final String suraName;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -30,7 +30,7 @@ class RecentlySuraListviewItem extends StatelessWidget {
                   mainAxisAlignment: .spaceEvenly,
                   children: [
                     Text(
-                      'Al-Anbiya',
+                      suraName,
                       style: Styles.textStyle24.copyWith(
                         color: Color(0xff202020),
                       ),

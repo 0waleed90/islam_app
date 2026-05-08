@@ -3,14 +3,14 @@ import 'package:islam/core/util/api_service/quran_api_service.dart';
 import 'package:islam/features/home/data/repo/home_repo_impl.dart';
 import 'package:islam/features/home/presentation/view/home_view.dart';
 
-class DawnloadQuranViewBody extends StatefulWidget {
-  const DawnloadQuranViewBody({super.key});
+class DownloadQuranViewBody extends StatefulWidget {
+  const DownloadQuranViewBody({super.key});
 
   @override
-  State<DawnloadQuranViewBody> createState() => _DawnloadQuranViewBodyState();
+  State<DownloadQuranViewBody> createState() => _DownloadQuranViewBodyState();
 }
 
-class _DawnloadQuranViewBodyState extends State<DawnloadQuranViewBody> {
+class _DownloadQuranViewBodyState extends State<DownloadQuranViewBody> {
   late Future<void> _loadingFuture;
   String _loadingMessage = 'جاري تحميل القرآن الكريم...';
 
