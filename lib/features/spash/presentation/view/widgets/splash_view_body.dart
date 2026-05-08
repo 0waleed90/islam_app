@@ -72,7 +72,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   void navigationToIntroView() {
     Future.delayed(Duration(seconds: 3), () {
-      GoRouter.of(context).push(AppRouter.kIntroView);
+      GoRouter.of(context).push(AppRouter.kDownloadQuranView);
     });
   }
 }

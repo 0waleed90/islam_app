@@ -3,6 +3,6 @@ import 'package:islam/core/errors/failure.dart';
 import 'package:islam/features/home/data/model/quran_model/quran_model.dart';
 
 abstract class HomeRepo{
-  Future<Either<Failures,List<QuranModel>>> fetchsuras();
+  Future<Either<Failures,List<QuranModel>>> downloadAndSaveQuran();
 
 }

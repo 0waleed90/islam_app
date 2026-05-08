@@ -5,7 +5,6 @@ import 'package:islam/core/util/app_router.dart';
 
 void main()async {
 await Hive.initFlutter();
-await Hive.openBox(kQuranBox);
   runApp(const Islam());
 }
 
