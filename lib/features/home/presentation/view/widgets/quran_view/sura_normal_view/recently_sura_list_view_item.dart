@@ -3,21 +3,22 @@ import 'package:go_router/go_router.dart';
 import 'package:islam/core/constants.dart';
 import 'package:islam/core/util/app_router.dart';
 import 'package:islam/core/util/styles.dart';
-import 'package:islam/features/home/presentation/view/sura_content_view.dart';
+import 'package:islam/features/download/data/model/dawnlod_quran_model/download_quran_model.dart';
 
 class RecentlySuraListviewItem extends StatelessWidget {
-  const RecentlySuraListviewItem({super.key, required this.suraName});
-final String suraName;
+  const RecentlySuraListviewItem({super.key, required this.sura});
+
+final DownloadQuranModel sura;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){GoRouter.of(context).push(AppRouter.kSuraContentView);},
+      onTap: (){GoRouter.of(context).push(AppRouter.kSuraContentView,extra:  sura);},
       child: Container(
         decoration: BoxDecoration(
           borderRadius: .circular(16),
           color: kPrimaryColor,
         ),
-        width: 280,
+        width: MediaQuery.of(context).size.width*.85,
 
         child: Row(
           children: [
@@ -30,13 +31,13 @@ final String suraName;
                   mainAxisAlignment: .spaceEvenly,
                   children: [
                     Text(
-                      suraName,
+                      sura.englishName,
                       style: Styles.textStyle24.copyWith(
                         color: Color(0xff202020),
                       ),
                     ),
                     Text(
-                      'الأنبياء',
+                      sura.name,
                       style: Styles.textStyle24.copyWith(
                         color: Color(0xff202020),
                       ),
@@ -46,6 +47,7 @@ final String suraName;
                 ),
               ),
             ),
+            Spacer(),
             Image.asset('assets/photos/Rectangle 124.png'),
           ],
         ),

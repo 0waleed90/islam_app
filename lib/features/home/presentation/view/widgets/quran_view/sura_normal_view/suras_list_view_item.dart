@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islam/core/util/app_router.dart';
 import 'package:islam/core/util/styles.dart';
+import 'package:islam/features/download/data/model/dawnlod_quran_model/download_quran_model.dart';
 
 class SurasListViewItem extends StatelessWidget {
-  const SurasListViewItem({super.key});
-
+  const SurasListViewItem({super.key, this.sura});
+  final DownloadQuranModel? sura;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kSuraContentView);
+        GoRouter.of(context).push(AppRouter.kSuraContentView,extra: sura);
       },
       child: Column(
         children: [

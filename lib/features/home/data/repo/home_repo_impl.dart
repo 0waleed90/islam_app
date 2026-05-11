@@ -1,37 +1,31 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:islam/core/constants.dart';
 import 'package:islam/core/errors/failure.dart';
 import 'package:islam/core/util/api_service/quran_api_service.dart';
+import 'package:islam/features/download/data/model/dawnlod_quran_model/download_quran_model.dart';
+import 'package:islam/features/download/data/model/quran_converter/quran_converter.dart';
 import 'package:islam/features/home/data/model/quran_model/quran_model.dart';
 import 'package:islam/features/home/data/repo/home_repo.dart';
 
 class HomeRepoImpl implements HomeRepo {
-   late final QuranApiService quranApiService;
- final List<QuranModel> sura = [];
+  static const String kQuranDownloaded = 'quran';
 
+  final QuranApiService quranApiService;
+
+  HomeRepoImpl(this.quranApiService);
 
   @override
-  Future<Either<Failures, List<QuranModel>>> downloadAndSaveQuran() async {
+  Future<Either<Failures, List<QuranModel>>> fetchQuranData() async {
     try {
       var data = await quranApiService.get(endPoint: '/v1/quran/quran-uthmani');
+      final List<QuranModel> sura = [];
 
-      for (var item in data['items']) {
-        sura.add(QuranModel.FromJson(item));
+      for (var item in data['data']['surahs']) {
+        sura.add(QuranModel.fromJson(item));
       }
-      // 3️⃣ حفظ في Hive
-      final box = await Hive.openBox<QuranModel>(kQuranBox);
-      await box.clear();
-      await box.addAll(sura);
 
-      // ✅ ضع علامة بأن التحميل انتهى
-      await markQuranAsDownloaded();
-
-      print('✅ تم حفظ القرآن بنجاح');
       return right(sura);
-
-
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
@@ -39,33 +33,42 @@ class HomeRepoImpl implements HomeRepo {
         return left(ServerFailure(e.toString()));
       }
     }
-
-
   }
 
+  @override
+  Future<Either<Failures, List<DownloadQuranModel>>> getQuranWithCache() async {
+    try {
+      // فتح Box
+      final box = await Hive.openBox<DownloadQuranModel>(kQuranDownloaded);
 
+      if (box.isNotEmpty) {
+        return right(box.values.toList());
+      }
+      final result = await fetchQuranData();
 
-  // قراءة من Hive (بدون نت)
-  Future<List<QuranModel>> getOfflineQuran() async {
-    final box = await Hive.openBox<QuranModel>(kQuranBox);
-    return box.values.toList();
+      return result.fold((failure) => left(failure), (quranApiModel) async {
+        final simpleSurahs = quranApiModel.map((surah) {
+          return QuranConverter.toSimpleSurah(surah);
+        }).toList();
+
+        for (var surah in simpleSurahs) {
+          await box.put(surah.number, surah);
+        }
+
+        return right(simpleSurahs);
+      });
+    } catch (e) {
+      return left(ServerFailure(e.toString()));
+    }
   }
 
-  // الحصول على سورة معينة
-  Future<QuranModel?> getSurah(int index) async {
-    final box = await Hive.openBox<QuranModel>(kQuranBox);
-    return box.getAt(index);
-  }
-
-  // التحقق ما إذا تم التحميل من قبل
-  Future<bool> isQuranDownloaded() async {
-    final box = await Hive.openBox('app_status');
-    return box.get('quran_downloaded', defaultValue: false);
-  }
-
-  // ضع علامة بأن التحميل تم
-  Future<void> markQuranAsDownloaded() async {
-    final box = await Hive.openBox('app_status');
-    await box.put('quran_downloaded', true);
+  @override
+  Future<bool> hasCachedData() async {
+    try {
+      final box = await Hive.openBox<DownloadQuranModel>(kQuranDownloaded);
+      return box.isNotEmpty;
+    } catch (e) {
+      return false;
+    }
   }
 }

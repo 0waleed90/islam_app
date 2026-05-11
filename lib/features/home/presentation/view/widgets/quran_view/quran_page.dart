@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:islam/core/constants.dart';
 import 'package:islam/core/util/styles.dart';
 import 'package:islam/core/util/widgets/logo_image.dart';
-import 'package:islam/features/home/presentation/view/widgets/quran_view/normal_content.dart';
-import 'package:islam/features/home/presentation/view/widgets/quran_view/search_results.dart';
+import 'package:islam/features/home/presentation/view/widgets/quran_view/sura_normal_view/normal_content.dart';
+import 'package:islam/features/home/presentation/view/widgets/quran_view/sura_normal_view/search_results.dart';
 
 class QuranPage extends StatefulWidget {
   const QuranPage({super.key});

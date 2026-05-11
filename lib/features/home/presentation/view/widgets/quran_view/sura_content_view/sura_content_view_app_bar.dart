@@ -4,8 +4,8 @@ import 'package:islam/core/constants.dart';
 import 'package:islam/core/util/styles.dart';
 
 class SuraContentViewAppBar extends StatelessWidget {
-  const SuraContentViewAppBar({super.key});
-
+  const SuraContentViewAppBar({super.key, required this.enSoraName});
+final String enSoraName;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -19,7 +19,7 @@ class SuraContentViewAppBar extends StatelessWidget {
             color: kPrimaryColor,
           ),
           const SizedBox(width: 110),
-          Text('Al-Fatiha', style: Styles.textStyle20),
+          Text(enSoraName, style: Styles.textStyle20),
         ],
       ),
     );

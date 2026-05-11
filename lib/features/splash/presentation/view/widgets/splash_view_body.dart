@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islam/core/util/app_router.dart';
+import 'package:islam/features/home/presentation/manger/quran_cubit/quran_cubit.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -12,7 +14,7 @@ class SplashViewBody extends StatefulWidget {
 class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
-    navigationToIntroView();
+    _checkAndNavigate();
     super.initState();
   }
 
@@ -69,10 +71,24 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       ),
     );
   }
+  Future<void> _checkAndNavigate() async {
+    await Future.delayed(const Duration(seconds: 2));
 
-  void navigationToIntroView() {
-    Future.delayed(Duration(seconds: 3), () {
-      GoRouter.of(context).push(AppRouter.kDownloadQuranView);
-    });
+    final cubit = context.read<QuranCubit>();
+    final hasData = await cubit.hasCachedData();
+
+    if (mounted) {
+      if (hasData) {
+
+        Future.delayed(Duration(seconds: 3), () {
+          GoRouter.of(context).push(AppRouter.kHomeView);
+        });
+      } else {
+        Future.delayed(Duration(seconds: 3), () {
+          GoRouter.of(context).push(AppRouter.kDownloadView);
+        });
+      }
+    }
   }
+
 }
