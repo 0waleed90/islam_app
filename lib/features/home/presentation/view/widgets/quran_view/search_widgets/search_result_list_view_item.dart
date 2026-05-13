@@ -9,7 +9,7 @@ class SearchResultListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GestureDetector(
+    return GestureDetector(
       onTap: () {
         GoRouter.of(context).push(AppRouter.kSuraContentView,extra: searchNotifier.value);
       },
@@ -21,10 +21,10 @@ class SearchResultListViewItem extends StatelessWidget {
                 alignment: .center,
                 children: [
                   Image.asset('assets/photos/Vector.png'),
-                  Text('1', style: Styles.textStyle24),
+                  const Text('1', style: Styles.textStyle24),
                 ],
               ),
-              SizedBox(width: 25),
+              const SizedBox(width: 25),
               Column(
                 children: [
                   Text(
@@ -44,7 +44,7 @@ class SearchResultListViewItem extends StatelessWidget {
               ),
             ],
           ),
-          Divider(color: Colors.white, indent: 45, endIndent: 45),
+          const Divider(color: Colors.white, indent: 45, endIndent: 45),
         ],
       ),
     );

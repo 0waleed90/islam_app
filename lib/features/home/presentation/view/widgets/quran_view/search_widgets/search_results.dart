@@ -6,6 +6,6 @@ class SearchResults extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [SizedBox(height: 30),SearchResultListView()]);
+    return Column(children:const [SizedBox(height: 30),SearchResultListView()]);
   }
 }

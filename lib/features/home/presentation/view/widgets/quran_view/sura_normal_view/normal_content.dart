@@ -9,7 +9,7 @@ class NormalContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Align(
           alignment: .bottomLeft,
           child: Text(
@@ -17,7 +17,7 @@ class NormalContent extends StatelessWidget {
             style: Styles.textStyle16.copyWith(color: Colors.white),
           ),
         ),
-        RecentlySuraListview(),
+        const RecentlySuraListview(),
         Align(
           alignment: .centerLeft,
           child: Text(
@@ -25,8 +25,8 @@ class NormalContent extends StatelessWidget {
             style: Styles.textStyle16.copyWith(color: Colors.white),
           ),
         ),
-        SizedBox(height: 10),
-        SurasListView(),
+        const SizedBox(height: 10),
+        const SurasListView(),
       ],
     );
   }

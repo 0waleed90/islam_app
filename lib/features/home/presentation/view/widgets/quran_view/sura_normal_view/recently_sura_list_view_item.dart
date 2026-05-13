@@ -38,21 +38,21 @@ final DownloadQuranModel sura;
                     Text(
                       sura.englishName,
                       style: Styles.textStyle24.copyWith(
-                        color: Color(0xff202020),
+                        color: const Color(0xff202020),
                       ),
                     ),
                     Text(
                       sura.name,
                       style: Styles.textStyle24.copyWith(
-                        color: Color(0xff202020),
+                        color: const Color(0xff202020),
                       ),
                     ),
-                    Text('112 Verses', style: Styles.textStyle14),
+                    const Text('112 Verses', style: Styles.textStyle14),
                   ],
                 ),
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Image.asset('assets/photos/Rectangle 124.png'),
           ],
         ),

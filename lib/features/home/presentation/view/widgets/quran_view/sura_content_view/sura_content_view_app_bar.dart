@@ -15,11 +15,11 @@ final String enSoraName;
             onPressed: () {
               GoRouter.of(context).pop();
             },
-            icon: Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back),
             color: kPrimaryColor,
           ),
           const SizedBox(width: 110),
-          Text(enSoraName, style: Styles.textStyle20),
+           Text(enSoraName, style: Styles.textStyle20),
         ],
       ),
     );

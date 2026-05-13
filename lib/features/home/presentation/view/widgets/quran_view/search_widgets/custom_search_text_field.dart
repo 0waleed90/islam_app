@@ -5,7 +5,6 @@ import 'package:islam/core/constants.dart';
 import 'package:islam/core/util/styles.dart';
 import 'package:islam/features/home/presentation/manger/quran_cubit/quran_cubit.dart';
 import 'package:islam/features/home/presentation/manger/quran_cubit/quran_state.dart';
-import 'package:islam/features/home/presentation/view/widgets/quran_view/search_widgets/search_result_list_view.dart';
 
 class CustomSearchTextField extends StatelessWidget {
   const CustomSearchTextField({super.key, required this.searchFocusNode});
@@ -20,13 +19,14 @@ class CustomSearchTextField extends StatelessWidget {
               .toList();
 
           return ValueListenableBuilder(
+
             valueListenable: searchNotifier,
             builder: (context, searchResults, child) {
               return TextField(
                 focusNode: searchFocusNode,
                 decoration: InputDecoration(
-                  prefixIcon: Padding(
-                    padding: const EdgeInsets.only(left: 14, top: 10),
+                  prefixIcon: const Padding(
+                    padding:  EdgeInsets.only(left: 14, top: 10),
                     child: FaIcon(
                       FontAwesomeIcons.bookQuran,
                       size: 28,
@@ -37,16 +37,16 @@ class CustomSearchTextField extends StatelessWidget {
                   hintStyle: Styles.textStyle16.copyWith(color: Colors.white),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: kPrimaryColor),
+                    borderSide: const BorderSide(color: kPrimaryColor),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(color: kPrimaryColor),
+                    borderSide: const BorderSide(color: kPrimaryColor),
                   ),
                 ),
                 onSubmitted: (value) {
                   if (value.isEmpty) {
-                    searchNotifier.value=[];
+                    searchNotifier.value=const [];
                   } else {
                     final results = surahNames.where((name) {
                       return name.contains(value);

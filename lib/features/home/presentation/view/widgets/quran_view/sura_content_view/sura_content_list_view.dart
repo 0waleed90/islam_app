@@ -11,7 +11,7 @@ class SuraContentListView extends StatelessWidget {
     return ListView.builder(
       itemCount: sura.ayahs.length,
       itemBuilder: (context, index) {
-        return SuraContentListViewItem(ayasContent: sura.ayahs[index].text, ayasCount: sura.ayahs[index].numberInSurah,);
+        return  SuraContentListViewItem(ayasContent: sura.ayahs[index].text, ayasCount: sura.ayahs[index].numberInSurah,);
       },
     );
   }

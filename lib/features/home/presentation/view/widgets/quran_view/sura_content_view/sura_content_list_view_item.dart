@@ -9,7 +9,7 @@ final String ayasContent;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return  Padding(
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: TextField(
         textAlign: TextAlign.center,
@@ -20,11 +20,11 @@ final String ayasContent;
           hintText: '{$ayasCount}  $ayasContent',
           hintStyle: Styles.textStyle20,
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimaryColor),
+            borderSide: const BorderSide(color: kPrimaryColor),
             borderRadius: BorderRadius.circular(12),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: kPrimaryColor),
+            borderSide: const BorderSide(color: kPrimaryColor),
             borderRadius: BorderRadius.circular(12),
           ),
         ),

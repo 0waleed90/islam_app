@@ -28,7 +28,7 @@ class RecentlySuraListview extends StatelessWidget {
             },
           ),
         );}
-        else {return Text('Opps There was an error');}
+        else {return const Text('Opps There was an error');}
       },
     );
   }
