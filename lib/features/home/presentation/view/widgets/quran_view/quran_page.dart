@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:islam/core/constants.dart';
-import 'package:islam/core/util/styles.dart';
 import 'package:islam/core/util/widgets/logo_image.dart';
+import 'package:islam/features/home/presentation/view/widgets/quran_view/search_widgets/custom_search_text_field.dart';
+import 'package:islam/features/home/presentation/view/widgets/quran_view/search_widgets/search_results.dart';
 import 'package:islam/features/home/presentation/view/widgets/quran_view/sura_normal_view/normal_content.dart';
-import 'package:islam/features/home/presentation/view/widgets/quran_view/sura_normal_view/search_results.dart';
 
 class QuranPage extends StatefulWidget {
   const QuranPage({super.key});
@@ -47,30 +45,7 @@ class _QuranPageState extends State<QuranPage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 10),
-                child: TextField(
-                  focusNode: _searchFocusNode,
-                  decoration: InputDecoration(
-                    prefixIcon: Padding(
-                      padding: const EdgeInsets.only(left: 14, top: 10),
-                      child: FaIcon(
-                        FontAwesomeIcons.bookQuran,
-                        size: 28,
-                        color: kPrimaryColor,
-                      ),
-                    ),
-                    hintText: 'Sura Name',
-                    hintStyle: Styles.textStyle16.copyWith(color: Colors.white),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: kPrimaryColor),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      borderSide: BorderSide(color: kPrimaryColor),
-                    ),
-                  ),
-                  onChanged: (value) {},
-                ),
+                child:CustomSearchTextField(searchFocusNode: _searchFocusNode,)
               ),
               _isSearching ? SearchResults() : NormalContent(),
             ],

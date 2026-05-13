@@ -18,7 +18,7 @@ class SurasListView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .355,
             child: ListView.builder(
               physics: BouncingScrollPhysics(),
-              itemCount: 20,
+              itemCount: 114,
               itemBuilder: (context, index) {
                 final sura = state.sura[index];
                 return Padding(

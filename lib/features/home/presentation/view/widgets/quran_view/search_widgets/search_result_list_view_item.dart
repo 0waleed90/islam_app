@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islam/core/util/app_router.dart';
 import 'package:islam/core/util/styles.dart';
-import 'package:islam/features/download/data/model/dawnlod_quran_model/download_quran_model.dart';
+import 'package:islam/features/home/presentation/view/widgets/quran_view/search_widgets/custom_search_text_field.dart';
 
-class SurasListViewItem extends StatelessWidget {
-  const SurasListViewItem({super.key, required this.sura});
-  final DownloadQuranModel? sura;
+class SearchResultListViewItem extends StatelessWidget {
+  const SearchResultListViewItem({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return  GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.kSuraContentView,extra: sura);
+        GoRouter.of(context).push(AppRouter.kSuraContentView,extra: searchNotifier.value);
       },
       child: Column(
         children: [
@@ -21,14 +21,14 @@ class SurasListViewItem extends StatelessWidget {
                 alignment: .center,
                 children: [
                   Image.asset('assets/photos/Vector.png'),
-                  Text(sura!.number.toString(), style: Styles.textStyle16),
+                  Text('1', style: Styles.textStyle24),
                 ],
               ),
               SizedBox(width: 25),
               Column(
                 children: [
                   Text(
-                    sura!.englishName,
+                    'Al-Fatiha',
                     style: Styles.textStyle20.copyWith(color: Colors.white),
                   ),
                   Text(
@@ -37,12 +37,11 @@ class SurasListViewItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(),
+              SizedBox(width: MediaQuery.of(context).size.width * .4),
               Text(
-                sura!.name,
+                "الفاتحة",
                 style: Styles.textStyle20.copyWith(color: Colors.white),
               ),
-              SizedBox(width: 20,)
             ],
           ),
           Divider(color: Colors.white, indent: 45, endIndent: 45),

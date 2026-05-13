@@ -9,10 +9,15 @@ class RecentlySuraListviewItem extends StatelessWidget {
   const RecentlySuraListviewItem({super.key, required this.sura});
 
 final DownloadQuranModel sura;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){GoRouter.of(context).push(AppRouter.kSuraContentView,extra:  sura);},
+      onTap: (){
+
+        GoRouter.of(context).push(AppRouter.kSuraContentView,extra:  sura);
+
+        },
       child: Container(
         decoration: BoxDecoration(
           borderRadius: .circular(16),
